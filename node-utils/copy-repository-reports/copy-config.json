@@ -1,0 +1,15 @@
+{
+  "groups": {
+    "name": "Mobile Apps",
+    "copyRules": [
+      {
+        "src": "...",
+        "target": "..."
+      },
+      {
+        "src": "...",
+        "target": "..."
+      }
+    ]
+  }
+}

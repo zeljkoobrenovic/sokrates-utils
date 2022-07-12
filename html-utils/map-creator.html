@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style type="text/css" media="all">
+        body {
+            font-family: Vollkorn, Ubuntu, Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        table {
+            color: #333;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        td, th {
+            border: 1px solid #CCC;
+            height: 30px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        th {
+            background: #F3F3F3;
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        td {
+            background: #FFFFFF;
+            text-align: left;
+        }
+
+        h3 {
+            margin-top: 0
+        }
+
+        h1 {
+            margin-bottom: 0;
+        }
+
+        p {
+            margin-top: 0;
+        }
+
+        .reportSubtitle {
+            color: grey;
+        }
+
+        .group {
+            margin-bottom: 10px;
+            border: solid lightgrey 1px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 2px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            border: solid lightgrey 1px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 2px;
+            padding: 0;
+        }
+
+        .sectionHeader {
+            margin-bottom: 30px;
+            padding: 20px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+            background-color: lightskyblue;
+        }
+
+        .sectionTitle {
+            font-size: 140%;
+        }
+
+        .sectionSubtitle {
+            font-size: 90%;
+            color: grey;
+        }
+
+        .subSectionTitle {
+            font-size: 140%;
+        }
+
+        .subSectionSubtitle {
+            font-size: 90%;
+            color: grey;
+        }
+
+        .subSection {
+            margin-bottom: 30px;
+            border: solid lightgrey 1px;
+            padding-top: 0;
+            padding-bottom: 0;
+            box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 1px 9px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .subSectionHeader {
+            border: solid lightgrey 1px;
+            padding: 6px;
+            background-color: lightgrey;
+            box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .sectionBody {
+            margin: 20px;
+        }
+
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <script type="text/javascript">
+        let flip = false;
+
+        function point_it(event) {
+            pos_x = event.offsetX ? (event.offsetX) : event.pageX - document.getElementById("pointer_div").offsetLeft;
+            pos_y = event.offsetY ? (event.offsetY) : event.pageY - document.getElementById("pointer_div").offsetTop;
+            if (!flip) {
+                document.pointform.coordinates.value = pos_x + ',' + pos_y;
+            } else {
+                document.pointform.coordinates.value += ',' + pos_x + ',' + pos_y;
+            }
+
+            flip = !flip;
+        }
+
+        function copyCoordinates() {
+            var copyText = document.getElementById("coordinates");
+
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+
+            document.execCommand("copy");
+        }
+    </script>
+</head>
+
+<body style="text-align: left; vetical-align: top; margin-left: 0px; margin-top: -10px;">
+<form name="pointform" method="post">
+    <div style="position: absolute; left: 20px; top: 20px;">
+        <input type="text" id="coordinates" name="coordinates" size="40">
+        <button onclick="copyCoordinates()">copy</button>
+    </div>
+    <div id="pointer_div"
+         onclick="point_it(event)"
+         style="margin-top: 60px;">
+        <img src="landscape.png" style="width: 1310px" usemap="#ecgmap">
+    </div>
+</form>
+</body>

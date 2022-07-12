@@ -1,0 +1,17 @@
+{
+  "groups": {
+    "name": "Mobile Apps",
+    "moveRules": [
+      {
+        "src": "...",
+        "target": "...",
+        "regex": "(?i)(|\\/|_|[-])iOS())(|_|[-])"
+      },
+      {
+        "src": "...",
+        "target": "...",
+        "regex": "(?i)(|\\/|_|[-])android())(|_|[-])"
+      }
+    ]
+  }
+}
